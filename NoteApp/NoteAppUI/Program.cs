@@ -15,16 +15,16 @@ namespace NoteAppUI
 		[STAThread]
 		static void Main()
 		{
-			Note newNote1 = new Note();
-			newNote1.Title = "First";
-			newNote1.Category = CategoryNote.Finance;// (CategoryNote)Enum.GetValues(typeof(CategoryNote)).GetValue(3);
-			newNote1.Text = "It works";
-			Project newProject = new Project();
-			newProject.Notes.Add(newNote1);
-			Note newNote2 = new Note();
-			newNote2.Category = CategoryNote.Health;
-			newProject.Notes.Add(newNote2);
-			ProjectManager.SaveToFile(newProject);
+			//Note newNote1 = new Note();
+			//newNote1.Title = "First";
+			//newNote1.Category = CategoryNote.Finance;// (CategoryNote)Enum.GetValues(typeof(CategoryNote)).GetValue(3);
+			//newNote1.Text = "It works";
+			//Project newProject = new Project();
+			//newProject.Notes.Add(newNote1);
+			//Note newNote2 = new Note();
+			//newNote2.Category = CategoryNote.Health;
+			//newProject.Notes.Add(newNote2);
+			//ProjectManager.SaveToFile(newProject);
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

@@ -31,28 +31,28 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.Cancel = new System.Windows.Forms.Button();
 			this.OK = new System.Windows.Forms.Button();
-			this.ChangedBox = new System.Windows.Forms.TextBox();
 			this.Changed = new System.Windows.Forms.Label();
-			this.CategoryBox = new System.Windows.Forms.ListBox();
 			this.AddTitleBox = new System.Windows.Forms.TextBox();
-			this.CreatedBox = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.TextBox = new System.Windows.Forms.TextBox();
 			this.Created = new System.Windows.Forms.Label();
 			this.Category = new System.Windows.Forms.Label();
 			this.Title = new System.Windows.Forms.Label();
+			this.CreatedDateNote = new System.Windows.Forms.DateTimePicker();
+			this.ChangedDateNote = new System.Windows.Forms.DateTimePicker();
+			this.CategoryBox = new System.Windows.Forms.ComboBox();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.CategoryBox);
+			this.panel1.Controls.Add(this.ChangedDateNote);
+			this.panel1.Controls.Add(this.CreatedDateNote);
 			this.panel1.Controls.Add(this.Cancel);
 			this.panel1.Controls.Add(this.OK);
-			this.panel1.Controls.Add(this.ChangedBox);
 			this.panel1.Controls.Add(this.Changed);
-			this.panel1.Controls.Add(this.CategoryBox);
 			this.panel1.Controls.Add(this.AddTitleBox);
-			this.panel1.Controls.Add(this.CreatedBox);
-			this.panel1.Controls.Add(this.textBox1);
+			this.panel1.Controls.Add(this.TextBox);
 			this.panel1.Controls.Add(this.Created);
 			this.panel1.Controls.Add(this.Category);
 			this.panel1.Controls.Add(this.Title);
@@ -69,6 +69,7 @@
 			this.Cancel.TabIndex = 21;
 			this.Cancel.Text = "Cancel";
 			this.Cancel.UseVisualStyleBackColor = true;
+			this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
 			// 
 			// OK
 			// 
@@ -78,13 +79,7 @@
 			this.OK.TabIndex = 20;
 			this.OK.Text = "OK";
 			this.OK.UseVisualStyleBackColor = true;
-			// 
-			// ChangedBox
-			// 
-			this.ChangedBox.Location = new System.Drawing.Point(254, 72);
-			this.ChangedBox.Name = "ChangedBox";
-			this.ChangedBox.Size = new System.Drawing.Size(100, 20);
-			this.ChangedBox.TabIndex = 19;
+			this.OK.Click += new System.EventHandler(this.OK_Click);
 			// 
 			// Changed
 			// 
@@ -95,23 +90,6 @@
 			this.Changed.TabIndex = 18;
 			this.Changed.Text = "Changed";
 			// 
-			// CategoryBox
-			// 
-			this.CategoryBox.FormattingEnabled = true;
-			this.CategoryBox.Items.AddRange(new object[] {
-            "All",
-            "Job",
-            "Home",
-            "Health",
-            "People",
-            "Documents",
-            "Finance",
-            "Different"});
-			this.CategoryBox.Location = new System.Drawing.Point(77, 44);
-			this.CategoryBox.Name = "CategoryBox";
-			this.CategoryBox.Size = new System.Drawing.Size(100, 43);
-			this.CategoryBox.TabIndex = 17;
-			// 
 			// AddTitleBox
 			// 
 			this.AddTitleBox.Location = new System.Drawing.Point(77, 20);
@@ -119,20 +97,13 @@
 			this.AddTitleBox.Size = new System.Drawing.Size(512, 20);
 			this.AddTitleBox.TabIndex = 16;
 			// 
-			// CreatedBox
+			// TextBox
 			// 
-			this.CreatedBox.Location = new System.Drawing.Point(254, 44);
-			this.CreatedBox.Name = "CreatedBox";
-			this.CreatedBox.Size = new System.Drawing.Size(100, 20);
-			this.CreatedBox.TabIndex = 15;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(25, 97);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(564, 276);
-			this.textBox1.TabIndex = 14;
+			this.TextBox.Location = new System.Drawing.Point(25, 97);
+			this.TextBox.Multiline = true;
+			this.TextBox.Name = "TextBox";
+			this.TextBox.Size = new System.Drawing.Size(564, 276);
+			this.TextBox.TabIndex = 14;
 			// 
 			// Created
 			// 
@@ -161,6 +132,37 @@
 			this.Title.TabIndex = 11;
 			this.Title.Text = "Title";
 			// 
+			// CreatedDateNote
+			// 
+			this.CreatedDateNote.Location = new System.Drawing.Point(267, 47);
+			this.CreatedDateNote.Name = "CreatedDateNote";
+			this.CreatedDateNote.Size = new System.Drawing.Size(121, 20);
+			this.CreatedDateNote.TabIndex = 22;
+			// 
+			// ChangedDateNote
+			// 
+			this.ChangedDateNote.Location = new System.Drawing.Point(267, 71);
+			this.ChangedDateNote.Name = "ChangedDateNote";
+			this.ChangedDateNote.Size = new System.Drawing.Size(121, 20);
+			this.ChangedDateNote.TabIndex = 23;
+			// 
+			// CategoryBox
+			// 
+			this.CategoryBox.FormattingEnabled = true;
+			this.CategoryBox.Items.AddRange(new object[] {
+            "All",
+            "Job",
+            "Home",
+            "Health",
+            "People",
+            "Documents",
+            "Finance",
+            "Different"});
+			this.CategoryBox.Location = new System.Drawing.Point(77, 47);
+			this.CategoryBox.Name = "CategoryBox";
+			this.CategoryBox.Size = new System.Drawing.Size(121, 21);
+			this.CategoryBox.TabIndex = 24;
+			// 
 			// AddEdit
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,14 +182,14 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button Cancel;
 		private System.Windows.Forms.Button OK;
-		private System.Windows.Forms.TextBox ChangedBox;
 		private System.Windows.Forms.Label Changed;
-		private System.Windows.Forms.ListBox CategoryBox;
 		private System.Windows.Forms.TextBox AddTitleBox;
-		private System.Windows.Forms.TextBox CreatedBox;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox TextBox;
 		private System.Windows.Forms.Label Created;
 		private System.Windows.Forms.Label Category;
 		private System.Windows.Forms.Label Title;
+		private System.Windows.Forms.DateTimePicker ChangedDateNote;
+		private System.Windows.Forms.DateTimePicker CreatedDateNote;
+		private System.Windows.Forms.ComboBox CategoryBox;
 	}
 }

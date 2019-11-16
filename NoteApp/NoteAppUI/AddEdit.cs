@@ -11,38 +11,71 @@ using NoteApp;
 
 namespace NoteAppUI
 {
+	/// <summary>
+	/// Форма для работы с текущей заметкой.
+	/// </summary>
 	public partial class AddEdit : Form
 	{
 		/// <summary>
-		/// Заполнение полей.
+		///Текущая заметка.
 		/// </summary>
-		/// <param name="newNote1"></param>
-		public AddEdit(Note newNote1)
+
+		private Note _currentNote = new Note();
+
+		/// <summary>
+		///Геттеры и сеттеры для текущей заметки.
+		/// </summary>
+		public Note CurrentNote
+		{
+			get
+			{
+				_currentNote.Text = TextBox.Text;
+				_currentNote.Title = AddTitleBox.Text;
+				_currentNote.Category = (CategoryNote)CategoryBox.SelectedItem;
+				return _currentNote;
+			}
+			set
+			{
+				if (value != null)
+				{
+					AddTitleBox.Text = value.Title;
+					CreatedDateNote.Value = value.DateCreate;
+					ChangedDateNote.Value = value.DateChange;
+					TextBox.Text = value.Text;
+					CategoryBox.SelectedItem = value.Category;
+
+
+				}
+
+			}
+		}
+		/// <summary>
+		/// Конструктор.
+		/// </summary>		
+		public AddEdit()
 		{
 			InitializeComponent();
-			AddTitleBox.Text = newNote1.Title;
-			CreatedBox.Text = newNote1.DateCreate.ToString();
-			ChangedBox.Text = newNote1.DateChange.ToString();
-			var values = System.Enum.GetValues(typeof(CategoryNote));
-			var categoryIndex = 0;
-			for (int i = 0; i < values.Length; i++)
-			{
-				if ((CategoryNote)values.GetValue(i) == newNote1.Category)
-				{
-					categoryIndex = i;
-					break;
-				}
-			}
+			/// <summary>
+			/// Заполнение списка категориями.
+			/// </summary>
+			var values = System.Enum.GetValues(typeof(CategoryNote));			
 			CategoryBox.DataSource = values;
-			CategoryBox.SelectedIndex = categoryIndex;
+			CategoryBox.SelectedIndex = 0;
 		}
 
+		/// <summary>
+		/// Кнопка ОК.
+		/// </summary>
 		private void OK_Click(object sender, EventArgs e)
 		{
-			//Project newProject = new Project();
-			//ProjectManager.SaveToFile(newProject);
+			
+			DialogResult = DialogResult.OK;
+			Close();
 		}
 
+		/// <summary>
+		/// Кнопка Cancel.
+		/// </summary>
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Close();

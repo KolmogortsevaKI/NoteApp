@@ -12,11 +12,17 @@ using NoteApp;
 
 namespace NoteAppUI
 {
+
+	/// <summary>
+	/// Главная форма .
+	/// </summary>
 	public partial class NoteApp : Form
 	{
-		private Note Note1 = new Note();
 		Project newProject = new Project();
 
+		/// <summary>
+		/// Конструктор.
+		/// </summary>
 		public NoteApp()
 		{
 			InitializeComponent();
@@ -25,46 +31,142 @@ namespace NoteAppUI
 			/// </summary>
 			CategoryBox.DataSource = System.Enum.GetValues(typeof(CategoryNote));
 
-			/// <summary>
-			/// Выгрузка проекта со списком.
-			/// </summary>
-			newProject = ProjectManager.LoadFromFile();
-
-			foreach (var note in newProject.Notes)
-			{
-				NoteBox.Items.Add(note.Title);
-			}
-
 		}
 
 		/// <summary>
-		/// Получение заметки, которую выбрал пользователь.
+		/// Получение заметок, по выбранной категории.
 		/// </summary>
 		private void CategoryBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			
 			var selected = (CategoryNote)CategoryBox.SelectedItem;
-		}
-
-		private void pictureBox1_Click(object sender, EventArgs e)
-		{
-
-			Note newNote1 = new Note();
-			AddEdit Add = new AddEdit(newNote1);
-			Add.Show();
-		}
-
-		private void pictureBox2_Click(object sender, EventArgs e)
-		{
-			if (NoteBox.SelectedIndex != -1)
+			List<Note> findCategory = new List<Note>();
+			if (selected != CategoryNote.All)
 			{
-				int index = NoteBox.SelectedIndex;
-				Note SelectedNote = newProject.Notes[index];
-				AddEdit Add = new AddEdit(SelectedNote);
-				Add.Show();
+				foreach (var note in newProject.Notes)
+				{
+					if (note.Category == selected)
+					{												
+						findCategory.Add(note);
+					}
+				}
+				if (findCategory.Count > 0)
+				{
+					UpdateNoteBox(findCategory);
+				}
+			}
+			else
+			{
+				UpdateNoteBox(newProject.Notes);
+			}
+		
+		}
+
+		/// <summary>
+		/// Добавление новой заметки.
+		/// </summary>
+
+		private void AddBox_Click(object sender, EventArgs e)
+		{
+			
+			AddEdit noteForm = new AddEdit();
+			DialogResult result = noteForm.ShowDialog();
+			if(result == DialogResult.OK)
+			{
+				Note newNote = noteForm.CurrentNote;
+				newProject.Notes.Add(newNote);
+				UpdateNoteBox(newProject.Notes);				
+			}
+		}
+		/// <summary>
+		/// Изменение текущей заметки.
+		/// </summary>
+		private void EditBox_Click(object sender, EventArgs e)
+		{
+			var index = NoteBox.SelectedIndex;
+			if (index >=0 )
+			{
+				Note selectedNote = newProject.Notes[index];
+				AddEdit noteForm = new AddEdit();
+				noteForm.CurrentNote = selectedNote;
+				DialogResult result = noteForm.ShowDialog();
+				if (result == DialogResult.OK)
+				{
+					Note newNote = noteForm.CurrentNote;
+					newProject.Notes.RemoveAt(index);
+					newProject.Notes.Insert(index, newNote);					
+					UpdateNoteBox(newProject.Notes);
+				}
 			}
 		}
 
+		/// <summary>
+		///Выход.
+		/// </summary>
+		private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+		/// <summary>
+		/// Сохранение перед закрытием приложения.
+		/// </summary>
+		private void NoteApp_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			ProjectManager.SaveToFile(newProject);
+		}
 
+		/// <summary>	
+		/// Выгрузка проекта со списком.		
+		/// </summary>
+		private void NoteApp_Load(object sender, EventArgs e)
+		{
+			newProject = ProjectManager.LoadFromFile();
+			UpdateNoteBox(newProject.Notes);
+		}
+
+		/// <summary>
+		/// Обновление списка.
+		/// </summary>
+		private void UpdateNoteBox(List<Note> notes)
+		{
+			NoteBox.Items.Clear();
+			foreach (var note in notes)
+			{
+				NoteBox.Items.Add(note.Title);
+			}
+		}
+		/// <summary>
+		/// Отображение, выборанной заметки.
+		/// </summary>
+		private void NoteBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			var index = NoteBox.SelectedIndex;
+			if(index >=0)
+			{
+				TitleBox.Text = newProject.Notes[index].Title;
+				CurrentCategoryNote.Text= newProject.Notes[index].Category.ToString();
+				CreateDate.Value = newProject.Notes[index].DateCreate;
+				ChangedDate.Value = newProject.Notes[index].DateChange;
+				TextBox.Text = newProject.Notes[index].Text;
+			}
+		}
+		/// <summary>
+		///Удаление заметки.
+		/// </summary>
+		private void DeletePicture_Click(object sender, EventArgs e)
+		{
+			var index = NoteBox.SelectedIndex;
+			if (index >=0)
+			{
+				DialogResult result  = MessageBox.Show("Вы уверены, что хотите удалить заметку: " + NoteBox.Items[index].ToString() + "?",
+					"Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (result == DialogResult.Yes)
+				{
+					NoteBox.Items.RemoveAt(index);
+					newProject.Notes.RemoveAt(index);
+				}
+			}
+		}
 	}
 }
 
