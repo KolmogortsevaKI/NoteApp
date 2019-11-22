@@ -12,7 +12,7 @@ namespace NoteApp
 	/// </summary>
 	public class Note
 	{
-		private string _title = "Безымянный";
+		private string _title;
 		private string _text;
 		private DateTime _created = DateTime.Now;
 		private DateTime _changed;
@@ -33,9 +33,12 @@ namespace NoteApp
 			{
 				if (value.Length > 50)
 				{
-					throw new ApplicationException("Название слишком длинное");
+					throw new ApplicationException("Length is too long");
 				}
-				else { _title = value; _changed = DateTime.Now; }
+			
+				if(value!=null)
+				{ _title = value; _changed = DateTime.Now; }
+					
 			}
 		}
 
@@ -85,6 +88,7 @@ namespace NoteApp
 		public DateTime DateChange
 		{
 			get { return _changed; }
+			
 		}
 
 	}

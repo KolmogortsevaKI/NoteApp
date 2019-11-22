@@ -30,6 +30,9 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteApp));
 			this.Panel2 = new System.Windows.Forms.Panel();
+			this.ChangedDate = new System.Windows.Forms.DateTimePicker();
+			this.CreateDate = new System.Windows.Forms.DateTimePicker();
+			this.CurrentCategoryNote = new System.Windows.Forms.Label();
 			this.TextBox = new System.Windows.Forms.TextBox();
 			this.TitleBox = new System.Windows.Forms.TextBox();
 			this.CategoryLabel = new System.Windows.Forms.Label();
@@ -52,9 +55,6 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.CurrentCategoryNote = new System.Windows.Forms.Label();
-			this.CreateDate = new System.Windows.Forms.DateTimePicker();
-			this.ChangedDate = new System.Windows.Forms.DateTimePicker();
 			this.Panel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.Panel1.SuspendLayout();
@@ -77,20 +77,45 @@
 			this.Panel2.Controls.Add(this.CategoryLabel);
 			this.Panel2.Controls.Add(this.CreatedLabel);
 			this.Panel2.Controls.Add(this.ChangedLabel);
-			this.Panel2.Location = new System.Drawing.Point(246, 3);
+			this.Panel2.Location = new System.Drawing.Point(256, 3);
 			this.Panel2.Name = "Panel2";
-			this.Panel2.Size = new System.Drawing.Size(446, 408);
+			this.Panel2.Size = new System.Drawing.Size(466, 408);
 			this.Panel2.TabIndex = 1;
+			// 
+			// ChangedDate
+			// 
+			this.ChangedDate.Enabled = false;
+			this.ChangedDate.Location = new System.Drawing.Point(287, 55);
+			this.ChangedDate.Name = "ChangedDate";
+			this.ChangedDate.Size = new System.Drawing.Size(127, 20);
+			this.ChangedDate.TabIndex = 21;
+			// 
+			// CreateDate
+			// 
+			this.CreateDate.Enabled = false;
+			this.CreateDate.Location = new System.Drawing.Point(73, 55);
+			this.CreateDate.Name = "CreateDate";
+			this.CreateDate.Size = new System.Drawing.Size(127, 20);
+			this.CreateDate.TabIndex = 20;
+			// 
+			// CurrentCategoryNote
+			// 
+			this.CurrentCategoryNote.AutoSize = true;
+			this.CurrentCategoryNote.Location = new System.Drawing.Point(70, 39);
+			this.CurrentCategoryNote.Name = "CurrentCategoryNote";
+			this.CurrentCategoryNote.Size = new System.Drawing.Size(86, 13);
+			this.CurrentCategoryNote.TabIndex = 19;
+			this.CurrentCategoryNote.Text = "Current Category";
 			// 
 			// TextBox
 			// 
 			this.TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.TextBox.Location = new System.Drawing.Point(16, 120);
+			this.TextBox.Location = new System.Drawing.Point(4, 81);
 			this.TextBox.Multiline = true;
 			this.TextBox.Name = "TextBox";
-			this.TextBox.Size = new System.Drawing.Size(398, 274);
+			this.TextBox.Size = new System.Drawing.Size(459, 324);
 			this.TextBox.TabIndex = 16;
 			// 
 			// TitleBox
@@ -101,13 +126,13 @@
 			this.TitleBox.Enabled = false;
 			this.TitleBox.Location = new System.Drawing.Point(16, 12);
 			this.TitleBox.Name = "TitleBox";
-			this.TitleBox.Size = new System.Drawing.Size(398, 20);
+			this.TitleBox.Size = new System.Drawing.Size(418, 20);
 			this.TitleBox.TabIndex = 18;
 			// 
 			// CategoryLabel
 			// 
 			this.CategoryLabel.AutoSize = true;
-			this.CategoryLabel.Location = new System.Drawing.Point(13, 51);
+			this.CategoryLabel.Location = new System.Drawing.Point(13, 39);
 			this.CategoryLabel.Name = "CategoryLabel";
 			this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
 			this.CategoryLabel.TabIndex = 7;
@@ -116,7 +141,7 @@
 			// CreatedLabel
 			// 
 			this.CreatedLabel.AutoSize = true;
-			this.CreatedLabel.Location = new System.Drawing.Point(13, 81);
+			this.CreatedLabel.Location = new System.Drawing.Point(13, 58);
 			this.CreatedLabel.Name = "CreatedLabel";
 			this.CreatedLabel.Size = new System.Drawing.Size(44, 13);
 			this.CreatedLabel.TabIndex = 9;
@@ -125,7 +150,7 @@
 			// ChangedLabel
 			// 
 			this.ChangedLabel.AutoSize = true;
-			this.ChangedLabel.Location = new System.Drawing.Point(231, 81);
+			this.ChangedLabel.Location = new System.Drawing.Point(231, 58);
 			this.ChangedLabel.Name = "ChangedLabel";
 			this.ChangedLabel.Size = new System.Drawing.Size(50, 13);
 			this.ChangedLabel.TabIndex = 10;
@@ -141,11 +166,11 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
 			this.tableLayoutPanel1.Controls.Add(this.Panel2, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.Panel1, 0, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 34);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 34);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(695, 414);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(725, 414);
 			this.tableLayoutPanel1.TabIndex = 21;
 			// 
 			// Panel1
@@ -162,7 +187,7 @@
 			this.Panel1.Location = new System.Drawing.Point(3, 3);
 			this.Panel1.MinimumSize = new System.Drawing.Size(241, 408);
 			this.Panel1.Name = "Panel1";
-			this.Panel1.Size = new System.Drawing.Size(241, 408);
+			this.Panel1.Size = new System.Drawing.Size(247, 408);
 			this.Panel1.TabIndex = 0;
 			// 
 			// CategoryBox
@@ -177,16 +202,16 @@
             "Documents",
             "Finance",
             "Different"});
-			this.CategoryBox.Location = new System.Drawing.Point(107, 12);
+			this.CategoryBox.Location = new System.Drawing.Point(99, 12);
 			this.CategoryBox.Name = "CategoryBox";
-			this.CategoryBox.Size = new System.Drawing.Size(121, 21);
+			this.CategoryBox.Size = new System.Drawing.Size(130, 21);
 			this.CategoryBox.TabIndex = 16;
 			this.CategoryBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBox_SelectedIndexChanged);
 			// 
 			// ShowLabel
 			// 
 			this.ShowLabel.AutoSize = true;
-			this.ShowLabel.Location = new System.Drawing.Point(9, 15);
+			this.ShowLabel.Location = new System.Drawing.Point(1, 15);
 			this.ShowLabel.Name = "ShowLabel";
 			this.ShowLabel.Size = new System.Drawing.Size(79, 13);
 			this.ShowLabel.TabIndex = 3;
@@ -198,9 +223,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.NoteBox.FormattingEnabled = true;
-			this.NoteBox.Location = new System.Drawing.Point(12, 48);
+			this.NoteBox.Location = new System.Drawing.Point(4, 39);
 			this.NoteBox.Name = "NoteBox";
-			this.NoteBox.Size = new System.Drawing.Size(216, 290);
+			this.NoteBox.Size = new System.Drawing.Size(239, 329);
 			this.NoteBox.TabIndex = 6;
 			this.NoteBox.SelectedIndexChanged += new System.EventHandler(this.NoteBox_SelectedIndexChanged);
 			// 
@@ -208,7 +233,7 @@
 			// 
 			this.AddPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AddPicture.Image = ((System.Drawing.Image)(resources.GetObject("AddPicture.Image")));
-			this.AddPicture.Location = new System.Drawing.Point(12, 357);
+			this.AddPicture.Location = new System.Drawing.Point(18, 378);
 			this.AddPicture.Name = "AddPicture";
 			this.AddPicture.Size = new System.Drawing.Size(26, 27);
 			this.AddPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -220,7 +245,7 @@
 			// 
 			this.DeletePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.DeletePicture.Image = ((System.Drawing.Image)(resources.GetObject("DeletePicture.Image")));
-			this.DeletePicture.Location = new System.Drawing.Point(93, 357);
+			this.DeletePicture.Location = new System.Drawing.Point(99, 378);
 			this.DeletePicture.Name = "DeletePicture";
 			this.DeletePicture.Size = new System.Drawing.Size(26, 27);
 			this.DeletePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,7 +257,7 @@
 			// 
 			this.EditPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.EditPicture.Image = ((System.Drawing.Image)(resources.GetObject("EditPicture.Image")));
-			this.EditPicture.Location = new System.Drawing.Point(52, 357);
+			this.EditPicture.Location = new System.Drawing.Point(58, 378);
 			this.EditPicture.Name = "EditPicture";
 			this.EditPicture.Size = new System.Drawing.Size(26, 27);
 			this.EditPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -253,24 +278,28 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.aboutToolStripMenuItem.Text = "About";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
 			// removeNoteToolStripMenuItem
 			// 
 			this.removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
 			this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.removeNoteToolStripMenuItem.Text = "Remove Note";
+			this.removeNoteToolStripMenuItem.Click += new System.EventHandler(this.removeNoteToolStripMenuItem_Click);
 			// 
 			// editNoteToolStripMenuItem
 			// 
 			this.editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
 			this.editNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.editNoteToolStripMenuItem.Text = "Edit Note";
+			this.editNoteToolStripMenuItem.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
 			// 
 			// addNoteToolStripMenuItem
 			// 
 			this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
 			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.addNoteToolStripMenuItem.Text = "Add Note";
+			this.addNoteToolStripMenuItem.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
 			// 
 			// editToolStripMenuItem
 			// 
@@ -308,31 +337,6 @@
 			this.menuStrip1.Size = new System.Drawing.Size(719, 24);
 			this.menuStrip1.TabIndex = 20;
 			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// CurrentCategoryNote
-			// 
-			this.CurrentCategoryNote.AutoSize = true;
-			this.CurrentCategoryNote.Location = new System.Drawing.Point(70, 51);
-			this.CurrentCategoryNote.Name = "CurrentCategoryNote";
-			this.CurrentCategoryNote.Size = new System.Drawing.Size(86, 13);
-			this.CurrentCategoryNote.TabIndex = 19;
-			this.CurrentCategoryNote.Text = "Current Category";
-			// 
-			// CreateDate
-			// 
-			this.CreateDate.Enabled = false;
-			this.CreateDate.Location = new System.Drawing.Point(73, 78);
-			this.CreateDate.Name = "CreateDate";
-			this.CreateDate.Size = new System.Drawing.Size(127, 20);
-			this.CreateDate.TabIndex = 20;
-			// 
-			// ChangedDate
-			// 
-			this.ChangedDate.Enabled = false;
-			this.ChangedDate.Location = new System.Drawing.Point(287, 78);
-			this.ChangedDate.Name = "ChangedDate";
-			this.ChangedDate.Size = new System.Drawing.Size(127, 20);
-			this.ChangedDate.TabIndex = 21;
 			// 
 			// NoteApp
 			// 

@@ -29,6 +29,9 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.CategoryBox = new System.Windows.Forms.ComboBox();
+			this.ChangedDateNote = new System.Windows.Forms.DateTimePicker();
+			this.CreatedDateNote = new System.Windows.Forms.DateTimePicker();
 			this.Cancel = new System.Windows.Forms.Button();
 			this.OK = new System.Windows.Forms.Button();
 			this.Changed = new System.Windows.Forms.Label();
@@ -37,14 +40,14 @@
 			this.Created = new System.Windows.Forms.Label();
 			this.Category = new System.Windows.Forms.Label();
 			this.Title = new System.Windows.Forms.Label();
-			this.CreatedDateNote = new System.Windows.Forms.DateTimePicker();
-			this.ChangedDateNote = new System.Windows.Forms.DateTimePicker();
-			this.CategoryBox = new System.Windows.Forms.ComboBox();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel1.Controls.Add(this.CategoryBox);
 			this.panel1.Controls.Add(this.ChangedDateNote);
 			this.panel1.Controls.Add(this.CreatedDateNote);
@@ -60,6 +63,39 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(614, 411);
 			this.panel1.TabIndex = 0;
+			// 
+			// CategoryBox
+			// 
+			this.CategoryBox.FormattingEnabled = true;
+			this.CategoryBox.Items.AddRange(new object[] {
+            "All",
+            "Job",
+            "Home",
+            "Health",
+            "People",
+            "Documents",
+            "Finance",
+            "Different"});
+			this.CategoryBox.Location = new System.Drawing.Point(71, 27);
+			this.CategoryBox.Name = "CategoryBox";
+			this.CategoryBox.Size = new System.Drawing.Size(121, 21);
+			this.CategoryBox.TabIndex = 24;
+			// 
+			// ChangedDateNote
+			// 
+			this.ChangedDateNote.Enabled = false;
+			this.ChangedDateNote.Location = new System.Drawing.Point(254, 54);
+			this.ChangedDateNote.Name = "ChangedDateNote";
+			this.ChangedDateNote.Size = new System.Drawing.Size(121, 20);
+			this.ChangedDateNote.TabIndex = 23;
+			// 
+			// CreatedDateNote
+			// 
+			this.CreatedDateNote.Enabled = false;
+			this.CreatedDateNote.Location = new System.Drawing.Point(71, 54);
+			this.CreatedDateNote.Name = "CreatedDateNote";
+			this.CreatedDateNote.Size = new System.Drawing.Size(121, 20);
+			this.CreatedDateNote.TabIndex = 22;
 			// 
 			// Cancel
 			// 
@@ -84,7 +120,7 @@
 			// Changed
 			// 
 			this.Changed.AutoSize = true;
-			this.Changed.Location = new System.Drawing.Point(204, 75);
+			this.Changed.Location = new System.Drawing.Point(198, 58);
 			this.Changed.Name = "Changed";
 			this.Changed.Size = new System.Drawing.Size(50, 13);
 			this.Changed.TabIndex = 18;
@@ -92,23 +128,23 @@
 			// 
 			// AddTitleBox
 			// 
-			this.AddTitleBox.Location = new System.Drawing.Point(77, 20);
+			this.AddTitleBox.Location = new System.Drawing.Point(71, 3);
 			this.AddTitleBox.Name = "AddTitleBox";
-			this.AddTitleBox.Size = new System.Drawing.Size(512, 20);
+			this.AddTitleBox.Size = new System.Drawing.Size(540, 20);
 			this.AddTitleBox.TabIndex = 16;
 			// 
 			// TextBox
 			// 
-			this.TextBox.Location = new System.Drawing.Point(25, 97);
+			this.TextBox.Location = new System.Drawing.Point(3, 83);
 			this.TextBox.Multiline = true;
 			this.TextBox.Name = "TextBox";
-			this.TextBox.Size = new System.Drawing.Size(564, 276);
+			this.TextBox.Size = new System.Drawing.Size(608, 290);
 			this.TextBox.TabIndex = 14;
 			// 
 			// Created
 			// 
 			this.Created.AutoSize = true;
-			this.Created.Location = new System.Drawing.Point(204, 47);
+			this.Created.Location = new System.Drawing.Point(16, 58);
 			this.Created.Name = "Created";
 			this.Created.Size = new System.Drawing.Size(44, 13);
 			this.Created.TabIndex = 13;
@@ -117,7 +153,7 @@
 			// Category
 			// 
 			this.Category.AutoSize = true;
-			this.Category.Location = new System.Drawing.Point(16, 45);
+			this.Category.Location = new System.Drawing.Point(16, 30);
 			this.Category.Name = "Category";
 			this.Category.Size = new System.Drawing.Size(49, 13);
 			this.Category.TabIndex = 12;
@@ -126,42 +162,11 @@
 			// Title
 			// 
 			this.Title.AutoSize = true;
-			this.Title.Location = new System.Drawing.Point(16, 23);
+			this.Title.Location = new System.Drawing.Point(16, 6);
 			this.Title.Name = "Title";
 			this.Title.Size = new System.Drawing.Size(27, 13);
 			this.Title.TabIndex = 11;
 			this.Title.Text = "Title";
-			// 
-			// CreatedDateNote
-			// 
-			this.CreatedDateNote.Location = new System.Drawing.Point(267, 47);
-			this.CreatedDateNote.Name = "CreatedDateNote";
-			this.CreatedDateNote.Size = new System.Drawing.Size(121, 20);
-			this.CreatedDateNote.TabIndex = 22;
-			// 
-			// ChangedDateNote
-			// 
-			this.ChangedDateNote.Location = new System.Drawing.Point(267, 71);
-			this.ChangedDateNote.Name = "ChangedDateNote";
-			this.ChangedDateNote.Size = new System.Drawing.Size(121, 20);
-			this.ChangedDateNote.TabIndex = 23;
-			// 
-			// CategoryBox
-			// 
-			this.CategoryBox.FormattingEnabled = true;
-			this.CategoryBox.Items.AddRange(new object[] {
-            "All",
-            "Job",
-            "Home",
-            "Health",
-            "People",
-            "Documents",
-            "Finance",
-            "Different"});
-			this.CategoryBox.Location = new System.Drawing.Point(77, 47);
-			this.CategoryBox.Name = "CategoryBox";
-			this.CategoryBox.Size = new System.Drawing.Size(121, 21);
-			this.CategoryBox.TabIndex = 24;
 			// 
 			// AddEdit
 			// 
@@ -170,7 +175,7 @@
 			this.ClientSize = new System.Drawing.Size(640, 428);
 			this.Controls.Add(this.panel1);
 			this.Name = "AddEdit";
-			this.Text = "`";
+			this.Text = "AddEditForm";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);

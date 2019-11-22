@@ -19,6 +19,8 @@ namespace NoteAppUI
 		/// <summary>
 		///Текущая заметка.
 		/// </summary>
+		private static int _defoultNameCount = 0;
+		private static string _defoultName = "Безымянный №";
 
 		private Note _currentNote = new Note();
 
@@ -30,6 +32,12 @@ namespace NoteAppUI
 			get
 			{
 				_currentNote.Text = TextBox.Text;
+				if (AddTitleBox.Text == "")
+				{
+					string noteName = _defoultName + _defoultNameCount;
+					_defoultNameCount++;
+					AddTitleBox.Text = noteName;
+				}
 				_currentNote.Title = AddTitleBox.Text;
 				_currentNote.Category = (CategoryNote)CategoryBox.SelectedItem;
 				return _currentNote;
@@ -80,5 +88,7 @@ namespace NoteAppUI
 		{
 			Close();
 		}
+
+		
 	}
 }
