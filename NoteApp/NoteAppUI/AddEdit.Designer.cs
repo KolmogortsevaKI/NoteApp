@@ -66,6 +66,7 @@
 			// 
 			// CategoryBox
 			// 
+			this.CategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.CategoryBox.FormattingEnabled = true;
 			this.CategoryBox.Items.AddRange(new object[] {
             "All",

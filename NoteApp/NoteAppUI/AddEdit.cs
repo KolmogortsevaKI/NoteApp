@@ -17,13 +17,14 @@ namespace NoteAppUI
 	public partial class AddEdit : Form
 	{
 		/// <summary>
+		///Для задания имени по умолчанию.
+		/// </summary>
+		private static int _defaultNameCount = 0;
+		private static string _defaultName = "Безымянный №";
+		/// <summary>
 		///Текущая заметка.
 		/// </summary>
-		private static int _defoultNameCount = 0;
-		private static string _defoultName = "Безымянный №";
-
 		private Note _currentNote = new Note();
-
 		/// <summary>
 		///Геттеры и сеттеры для текущей заметки.
 		/// </summary>
@@ -34,10 +35,10 @@ namespace NoteAppUI
 				_currentNote.Text = TextBox.Text;
 				if (AddTitleBox.Text == "")
 				{
-					string noteName = _defoultName + _defoultNameCount;
-					_defoultNameCount++;
+					string noteName = _defaultName + _defaultNameCount;
+					_defaultNameCount++;
 					AddTitleBox.Text = noteName;
-				}
+				}				
 				_currentNote.Title = AddTitleBox.Text;
 				_currentNote.Category = (CategoryNote)CategoryBox.SelectedItem;
 				return _currentNote;
@@ -66,29 +67,29 @@ namespace NoteAppUI
 			/// <summary>
 			/// Заполнение списка категориями.
 			/// </summary>
-			var values = System.Enum.GetValues(typeof(CategoryNote));			
+			var values = System.Enum.GetValues(typeof(CategoryNote));	
 			CategoryBox.DataSource = values;
 			CategoryBox.SelectedIndex = 0;
 		}
-
 		/// <summary>
 		/// Кнопка ОК.
 		/// </summary>
 		private void OK_Click(object sender, EventArgs e)
 		{
-			
+			if(CategoryBox.SelectedIndex == 0)
+			{
+				MessageBox.Show("All couldn't be chosen category. Change category", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 			DialogResult = DialogResult.OK;
 			Close();
 		}
-
 		/// <summary>
 		/// Кнопка Cancel.
 		/// </summary>
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Close();
-		}
-
-		
+		}	
 	}
 }

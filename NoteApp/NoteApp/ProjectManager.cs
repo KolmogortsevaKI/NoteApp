@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
-
+using Newtonsoft.Json.Converters;
 
 namespace NoteApp
 {
@@ -51,6 +51,7 @@ namespace NoteApp
 		{
 			Project project = null;
 			var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+			serializer.Converters.Add(new IsoDateTimeConverter());
 			using (var sr = new StreamReader(_file))
 			using (JsonReader reader = new JsonTextReader(sr))
 			{
