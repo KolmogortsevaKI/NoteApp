@@ -216,8 +216,7 @@ namespace NoteAppUI
 			if (NoteBox.Items.Count > 0)
 			{
 				NoteBox.SelectedIndex = 0;
-			}
-			
+			}	
 		}
 		/// <summary>
 		/// Отображение выбранной заметки.

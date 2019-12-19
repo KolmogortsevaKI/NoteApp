@@ -71,18 +71,18 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(17, 123);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(97, 13);
 			this.label4.TabIndex = 3;
-			this.label4.Text = "email for feedback:@@@";
+			this.label4.Text = "email for feedback:";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(17, 146);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(79, 13);
+			this.label5.Size = new System.Drawing.Size(43, 13);
 			this.label5.TabIndex = 4;
-			this.label5.Text = "GitHub: GitHub";
+			this.label5.Text = "GitHub:";
 			// 
 			// label6
 			// 
@@ -96,22 +96,22 @@
 			// linkLabel1
 			// 
 			this.linkLabel1.AutoSize = true;
-			this.linkLabel1.Location = new System.Drawing.Point(153, 123);
+			this.linkLabel1.Location = new System.Drawing.Point(110, 123);
 			this.linkLabel1.Name = "linkLabel1";
-			this.linkLabel1.Size = new System.Drawing.Size(55, 13);
+			this.linkLabel1.Size = new System.Drawing.Size(96, 13);
 			this.linkLabel1.TabIndex = 6;
 			this.linkLabel1.TabStop = true;
-			this.linkLabel1.Text = "linkLabel1";
+			this.linkLabel1.Text = "karinenish@mail.ru";
 			// 
 			// linkLabel2
 			// 
 			this.linkLabel2.AutoSize = true;
-			this.linkLabel2.Location = new System.Drawing.Point(92, 146);
+			this.linkLabel2.Location = new System.Drawing.Point(57, 146);
 			this.linkLabel2.Name = "linkLabel2";
-			this.linkLabel2.Size = new System.Drawing.Size(55, 13);
+			this.linkLabel2.Size = new System.Drawing.Size(180, 13);
 			this.linkLabel2.TabIndex = 7;
 			this.linkLabel2.TabStop = true;
-			this.linkLabel2.Text = "linkLabel2";
+			this.linkLabel2.Text = "https://github.com/KolmogortsevaKI";
 			// 
 			// AboutForm
 			// 
