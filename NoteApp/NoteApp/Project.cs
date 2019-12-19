@@ -12,11 +12,43 @@ namespace NoteApp
 	public class Project
 	{
 		private List<Note> _notes = new List<Note>();
-
 		public List<Note> Notes
 		{
-			get { return _notes; }
-			set { _notes = value; }
+			get 
+			{ 
+			  return _notes; 
+			}
+			set 
+			{
+			 _notes = value; 
+			}
 		}
+		/// <summary>
+		/// Конструктор Project.
+		/// </summary>
+		public Project()
+		{
+			Notes = new List<Note>();
+		}
+		/// <summary>
+		/// Функиця для сортировки списка заметок по дате изменения.
+		/// </summary>
+		/// <param name="noteList"></param>
+		/// <returns></returns>
+		public List<Note> SortNotes(List<Note> noteList = null)
+		{
+			var sortingList = noteList ?? Notes;
+			
+			sortingList.Sort(delegate (Note x, Note y)
+			{
+				if (x.DateChange == null && y.DateChange== null) return 0;
+				else if (x.DateChange == null) return 1;
+				else if (y.DateChange == null) return -1;
+				else return y.DateChange.CompareTo(x.DateChange);
+			});
+			return sortingList;
+		}
+
 	}
+
 }

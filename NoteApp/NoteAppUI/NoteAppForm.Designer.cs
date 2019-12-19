@@ -1,6 +1,6 @@
 ﻿namespace NoteAppUI
 {
-	partial class NoteApp
+	partial class NoteAppForm
 	{
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteApp));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteAppForm));
 			this.Panel2 = new System.Windows.Forms.Panel();
 			this.ChangedDate = new System.Windows.Forms.DateTimePicker();
 			this.CreateDate = new System.Windows.Forms.DateTimePicker();
@@ -112,11 +112,13 @@
 			this.TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.TextBox.Enabled = false;
 			this.TextBox.Location = new System.Drawing.Point(4, 81);
 			this.TextBox.Multiline = true;
 			this.TextBox.Name = "TextBox";
 			this.TextBox.Size = new System.Drawing.Size(459, 324);
 			this.TextBox.TabIndex = 16;
+			this.TextBox.Text = "Text";
 			// 
 			// TitleBox
 			// 
@@ -128,6 +130,7 @@
 			this.TitleBox.Name = "TitleBox";
 			this.TitleBox.Size = new System.Drawing.Size(418, 20);
 			this.TitleBox.TabIndex = 18;
+			this.TitleBox.Text = "TitleBox";
 			// 
 			// CategoryLabel
 			// 
@@ -192,16 +195,8 @@
 			// 
 			// CategoryBox
 			// 
+			this.CategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.CategoryBox.FormattingEnabled = true;
-			this.CategoryBox.Items.AddRange(new object[] {
-            "All",
-            "Job",
-            "Home",
-            "Health",
-            "People",
-            "Documents",
-            "Finance",
-            "Different"});
 			this.CategoryBox.Location = new System.Drawing.Point(99, 12);
 			this.CategoryBox.Name = "CategoryBox";
 			this.CategoryBox.Size = new System.Drawing.Size(130, 21);
@@ -283,21 +278,21 @@
 			// removeNoteToolStripMenuItem
 			// 
 			this.removeNoteToolStripMenuItem.Name = "removeNoteToolStripMenuItem";
-			this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.removeNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.removeNoteToolStripMenuItem.Text = "Remove Note";
 			this.removeNoteToolStripMenuItem.Click += new System.EventHandler(this.removeNoteToolStripMenuItem_Click);
 			// 
 			// editNoteToolStripMenuItem
 			// 
 			this.editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
-			this.editNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.editNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.editNoteToolStripMenuItem.Text = "Edit Note";
 			this.editNoteToolStripMenuItem.Click += new System.EventHandler(this.editNoteToolStripMenuItem_Click);
 			// 
 			// addNoteToolStripMenuItem
 			// 
 			this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
-			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.addNoteToolStripMenuItem.Text = "Add Note";
 			this.addNoteToolStripMenuItem.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
 			// 
@@ -314,7 +309,7 @@
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
@@ -338,19 +333,23 @@
 			this.menuStrip1.TabIndex = 20;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// NoteApp
+			// NoteAppForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(719, 460);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.menuStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(735, 498);
-			this.Name = "NoteApp";
+			this.Name = "NoteAppForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "NoteApp";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NoteApp_FormClosing);
 			this.Load += new System.EventHandler(this.NoteApp_Load);
+			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NoteAppForm_KeyUp);
 			this.Panel2.ResumeLayout(false);
 			this.Panel2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NoteApp;
 
@@ -15,36 +9,37 @@ namespace NoteAppUI
 	/// <summary>
 	/// Главная форма .
 	/// </summary>
-	public partial class NoteApp : Form
+	public partial class NoteAppForm : Form
 	{
 		Project newProject = new Project();
 		private List<Note> currentNotes;
-		/// <summary>
-		/// 
-		/// </summary>
-		public NoteApp()
+		public NoteAppForm()
 		{
-			InitializeComponent();
-			/// <summary>
-			/// Привязка enum к значениям.
-			/// </summary>
-			CategoryBox.DataSource = System.Enum.GetValues(typeof(CategoryNote));
+			InitializeComponent();			
+			CategoryBox.Items.Add("All");
+			var listCategory = System.Enum.GetValues(typeof(CategoryNote));
+			foreach (var category in listCategory)
+			{
+				CategoryBox.Items.Add(category);
+			}
+			CategoryBox.SelectedIndex = 0;			
 
 		}
-
 		/// <summary>
 		/// Добавление заметки.
 		/// </summary>
 		public void AddCommon()
 		{
-			AddEdit noteForm = new AddEdit();
+			AddEditForm noteForm = new AddEditForm();
 			DialogResult result = noteForm.ShowDialog();
 			if (result == DialogResult.OK)
 			{
 				Note newNote = noteForm.CurrentNote;
-				newProject.Notes.Add(newNote);
-				CurrentCategory();
+				newProject.Notes.Add(newNote);				
 				var index = NoteBox.Items.Count;
+				newProject.Notes = newProject.SortNotes(newProject.Notes);
+				CurrentCategory();
+				SaveProject();
 				NoteBox.SelectedIndex = index - 1;
 
 			}
@@ -73,7 +68,7 @@ namespace NoteAppUI
 			{
 				var currentIndexNote = newProject.Notes.IndexOf(currentNotes[index]);
 				Note selectedNote = newProject.Notes[currentIndexNote];
-				AddEdit noteForm = new AddEdit();
+				AddEditForm noteForm = new AddEditForm();
 				noteForm.CurrentNote = selectedNote;
 
 				DialogResult result = noteForm.ShowDialog();
@@ -82,12 +77,15 @@ namespace NoteAppUI
 					Note newNote = noteForm.CurrentNote;
 					newProject.Notes.RemoveAt(currentIndexNote);
 					newProject.Notes.Insert(currentIndexNote, newNote);
+					newProject.Notes = newProject.SortNotes(newProject.Notes);
+					SaveProject();
 					CurrentCategory();
 					if (NoteBox.Items.Count > 0)
 					{
 						NoteBox.SelectedIndex = 0;
 					}
 				}
+				
 			}
 		}
 		/// <summary>
@@ -118,11 +116,13 @@ namespace NoteAppUI
 				if (result == DialogResult.Yes)
 				{
 					newProject.Notes.RemoveAt(currentIndexNote);
+					newProject.Notes = newProject.SortNotes(newProject.Notes);
 					CurrentCategory();
+					SaveProject();
 					if (NoteBox.Items.Count > 0)
 					{
 						NoteBox.SelectedIndex = 0;
-					}
+					}  
 				}
 			}
 		}
@@ -141,18 +141,26 @@ namespace NoteAppUI
 			DeleteCommon();
 		}
 		/// <summary>
-		/// Получение заметок, по выбранной категории.
+		/// Получение заметок по выбранной категории.
 		/// </summary>
 		private void CategoryBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			CurrentCategory();
 		}	
+		/// <summary>
+		/// Поиск категории.
+		/// </summary>
 		private void CurrentCategory()
 		{
-			var selected = (CategoryNote)CategoryBox.SelectedItem;
-			List<Note> findCategory = new List<Note>();
-			if (selected != CategoryNote.All)
+						
+			if (CategoryBox.SelectedItem.ToString() == "All")
 			{
+				UpdateNoteBox(newProject.Notes);
+			}
+			else
+			{
+				List<Note> findCategory = new List<Note>();
+				var selected = (CategoryNote)CategoryBox.SelectedItem;
 				foreach (var note in newProject.Notes)
 				{
 					if (note.Category == selected)
@@ -162,17 +170,20 @@ namespace NoteAppUI
 				}
 				UpdateNoteBox(findCategory);
 			}
-			else
-			{
-				UpdateNoteBox(newProject.Notes);
-			}
+						
 		}
 		/// <summary>
 		/// Сохранение перед закрытием приложения.
 		/// </summary>
 		private void NoteApp_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			ProjectManager.SaveToFile(newProject);
+			SaveProject();
+		}
+
+		private void SaveProject()
+		{
+			string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			ProjectManager.SaveToFile(newProject, path);
 		}
 		/// <summary>
 		///Выход.
@@ -185,8 +196,9 @@ namespace NoteAppUI
 		/// Выгрузка проекта со списком.		
 		/// </summary>
 		private void NoteApp_Load(object sender, EventArgs e)
-		{			
-			newProject = ProjectManager.LoadFromFile();
+		{
+			string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			newProject = ProjectManager.LoadFromFile(path);
 			UpdateNoteBox(newProject.Notes);
 		}
 		/// <summary>
@@ -195,14 +207,20 @@ namespace NoteAppUI
 		private void UpdateNoteBox(List<Note> notes)
 		{
 			NoteBox.Items.Clear();
+			currentNotes = notes;
 			foreach (var note in notes)
 			{
 				NoteBox.Items.Add(note.Title);
 			}
-			currentNotes = notes;
+			
+			if (NoteBox.Items.Count > 0)
+			{
+				NoteBox.SelectedIndex = 0;
+			}
+			
 		}
 		/// <summary>
-		/// Отображение, выборанной заметки.
+		/// Отображение выбранной заметки.
 		/// </summary>
 		private void NoteBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -212,7 +230,7 @@ namespace NoteAppUI
 				var currentIndexNote = newProject.Notes.IndexOf(currentNotes[index]);
 				TitleBox.Text = newProject.Notes[currentIndexNote].Title;
 				CurrentCategoryNote.Text = newProject.Notes[currentIndexNote].Category.ToString();
-				//CreateDate.Value = newProject.Notes[currentIndexNote].DateCreate;
+				CreateDate.Value = newProject.Notes[currentIndexNote].DateCreate;
 				ChangedDate.Value = newProject.Notes[currentIndexNote].DateChange;
 				TextBox.Text = newProject.Notes[currentIndexNote].Text;
 			}
@@ -222,13 +240,23 @@ namespace NoteAppUI
 		/// </summary>
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			About noteForm = new About();
+			AboutForm noteForm = new AboutForm();
 			DialogResult result = noteForm.ShowDialog();
 		}
+		/// <summary>
+		/// Удаление при нажатии Delete.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void NoteAppForm_KeyUp(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Delete)
+			{
+				DeleteCommon(); 
+			}
+		} 
+
 	}
-
-
-
 }
 
 

@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace NoteApp
 {
 	/// <summary>
-	/// Класс Заметка.
+	/// Класс заметки.
 	/// </summary>
 	public class Note
 	{
@@ -27,16 +27,6 @@ namespace NoteApp
 			_created = DateTime.Now;
 		}
 
-		[JsonConstructor]
-		public Note(string title, string text, DateTime created, DateTime changed, CategoryNote category)
-		{
-			Title = title;
-			Text = text;
-			DateCreate = created;
-			DateChange = changed;
-			Category = category;
-		}
-
 		/// <summary>
 		/// Методы set и get для поля _title.
 		/// </summary>
@@ -49,29 +39,15 @@ namespace NoteApp
 
 			set
 			{
-				if (value.Length > 50)
+				if (value.Length < 50)
 				{
-					throw new ArgumentException("Length is too long");
+					_title = value;
+					_changed = DateTime.Now;
 				}
-			  
-				if(value!=null)
+				else
 				{
-					try
-					{
-						string pattern = @"^[^\s]";
-						Regex regex = new Regex(pattern);
-						Match match = regex.Match(value);
-
-					}
-					catch (ArgumentException exception)
-					{
-						throw new ArgumentException("Title couldn't start from space");	
-					}
-
-					_title = value; 
-					_changed = DateTime.Now; 
+					throw new ArgumentException("value.Length > 50");
 				}
-	
 			}
 		}
 		/// <summary>
@@ -101,13 +77,14 @@ namespace NoteApp
 			}
 			set
 			{
-				_category = value;
-				_changed = DateTime.Now;
+			  _category = value;
+			  _changed = DateTime.Now;
 			}
 		}
 		/// <summary>
 		/// Методы set и get для поля _created(время создания).
 		/// </summary>
+		[JsonProperty]
 		public DateTime DateCreate
 		{
 			get 
@@ -122,15 +99,16 @@ namespace NoteApp
 		/// <summary>
 		/// Методы set и get для поля _changed (время изменения).
 		/// </summary>
+		[JsonProperty]
 		public DateTime DateChange
 		{
 			get 
-			{ 
-			  return _changed; 
+			{
+				return _changed; 
 			}
 			private set
 			{
-				_changed = value;
+			  _changed = value;
 			}
 			
 		}

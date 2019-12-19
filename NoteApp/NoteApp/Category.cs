@@ -8,8 +8,7 @@ namespace NoteApp
 	/// Категория заметки.
 	/// </summary>
 	public enum CategoryNote
-	{
-		All,
+	{		
 		Job,
 		Home,
 		Health,

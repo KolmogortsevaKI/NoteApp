@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NoteApp;
 
@@ -14,7 +7,7 @@ namespace NoteAppUI
 	/// <summary>
 	/// Форма для работы с текущей заметкой.
 	/// </summary>
-	public partial class AddEdit : Form
+	public partial class AddEditForm : Form
 	{
 		/// <summary>
 		///Для задания имени по умолчанию.
@@ -52,8 +45,6 @@ namespace NoteAppUI
 					ChangedDateNote.Value = value.DateChange;
 					TextBox.Text = value.Text;
 					CategoryBox.SelectedItem = value.Category;
-
-
 				}
 
 			}
@@ -61,7 +52,7 @@ namespace NoteAppUI
 		/// <summary>
 		/// Конструктор.
 		/// </summary>		
-		public AddEdit()
+		public AddEditForm()
 		{
 			InitializeComponent();
 			/// <summary>
@@ -75,12 +66,7 @@ namespace NoteAppUI
 		/// Кнопка ОК.
 		/// </summary>
 		private void OK_Click(object sender, EventArgs e)
-		{
-			if(CategoryBox.SelectedIndex == 0)
-			{
-				MessageBox.Show("All couldn't be chosen category. Change category", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
+		{			
 			DialogResult = DialogResult.OK;
 			Close();
 		}

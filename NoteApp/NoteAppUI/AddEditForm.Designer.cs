@@ -1,6 +1,6 @@
 ﻿namespace NoteAppUI
 {
-	partial class AddEdit
+	partial class AddEditForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -169,14 +169,15 @@
 			this.Title.TabIndex = 11;
 			this.Title.Text = "Title";
 			// 
-			// AddEdit
+			// AddEditForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(640, 428);
 			this.Controls.Add(this.panel1);
-			this.Name = "AddEdit";
-			this.Text = "AddEditForm";
+			this.Name = "AddEditForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "AddEdit";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
