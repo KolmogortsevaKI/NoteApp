@@ -96,7 +96,6 @@ namespace NoteApp.UnitTests
 			//Assert
 			Assert.AreEqual(expected, _note.Text, "Cеттер Text устанавливает неправильное значение");
 		}
-
 		[Test(Description = "Проверка даты")]
 		public void TestDateCreated_CorrectValue()
 		{

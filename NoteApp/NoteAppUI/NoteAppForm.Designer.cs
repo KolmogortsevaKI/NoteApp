@@ -34,7 +34,6 @@
 			this.CreateDate = new System.Windows.Forms.DateTimePicker();
 			this.CurrentCategoryNote = new System.Windows.Forms.Label();
 			this.TextBox = new System.Windows.Forms.TextBox();
-			this.TitleBox = new System.Windows.Forms.TextBox();
 			this.CategoryLabel = new System.Windows.Forms.Label();
 			this.CreatedLabel = new System.Windows.Forms.Label();
 			this.ChangedLabel = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.Panel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.Panel1.SuspendLayout();
@@ -69,17 +69,17 @@
 			this.Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.Panel2.Controls.Add(this.TitleLabel);
 			this.Panel2.Controls.Add(this.ChangedDate);
 			this.Panel2.Controls.Add(this.CreateDate);
 			this.Panel2.Controls.Add(this.CurrentCategoryNote);
 			this.Panel2.Controls.Add(this.TextBox);
-			this.Panel2.Controls.Add(this.TitleBox);
 			this.Panel2.Controls.Add(this.CategoryLabel);
 			this.Panel2.Controls.Add(this.CreatedLabel);
 			this.Panel2.Controls.Add(this.ChangedLabel);
-			this.Panel2.Location = new System.Drawing.Point(256, 3);
+			this.Panel2.Location = new System.Drawing.Point(266, 3);
 			this.Panel2.Name = "Panel2";
-			this.Panel2.Size = new System.Drawing.Size(466, 408);
+			this.Panel2.Size = new System.Drawing.Size(485, 413);
 			this.Panel2.TabIndex = 1;
 			// 
 			// ChangedDate
@@ -101,7 +101,7 @@
 			// CurrentCategoryNote
 			// 
 			this.CurrentCategoryNote.AutoSize = true;
-			this.CurrentCategoryNote.Location = new System.Drawing.Point(70, 39);
+			this.CurrentCategoryNote.Location = new System.Drawing.Point(70, 37);
 			this.CurrentCategoryNote.Name = "CurrentCategoryNote";
 			this.CurrentCategoryNote.Size = new System.Drawing.Size(86, 13);
 			this.CurrentCategoryNote.TabIndex = 19;
@@ -116,26 +116,14 @@
 			this.TextBox.Location = new System.Drawing.Point(4, 81);
 			this.TextBox.Multiline = true;
 			this.TextBox.Name = "TextBox";
-			this.TextBox.Size = new System.Drawing.Size(459, 324);
+			this.TextBox.Size = new System.Drawing.Size(466, 332);
 			this.TextBox.TabIndex = 16;
 			this.TextBox.Text = "Text";
-			// 
-			// TitleBox
-			// 
-			this.TitleBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.TitleBox.Enabled = false;
-			this.TitleBox.Location = new System.Drawing.Point(16, 12);
-			this.TitleBox.Name = "TitleBox";
-			this.TitleBox.Size = new System.Drawing.Size(418, 20);
-			this.TitleBox.TabIndex = 18;
-			this.TitleBox.Text = "TitleBox";
 			// 
 			// CategoryLabel
 			// 
 			this.CategoryLabel.AutoSize = true;
-			this.CategoryLabel.Location = new System.Drawing.Point(13, 39);
+			this.CategoryLabel.Location = new System.Drawing.Point(13, 37);
 			this.CategoryLabel.Name = "CategoryLabel";
 			this.CategoryLabel.Size = new System.Drawing.Size(52, 13);
 			this.CategoryLabel.TabIndex = 7;
@@ -146,18 +134,18 @@
 			this.CreatedLabel.AutoSize = true;
 			this.CreatedLabel.Location = new System.Drawing.Point(13, 58);
 			this.CreatedLabel.Name = "CreatedLabel";
-			this.CreatedLabel.Size = new System.Drawing.Size(44, 13);
+			this.CreatedLabel.Size = new System.Drawing.Size(47, 13);
 			this.CreatedLabel.TabIndex = 9;
-			this.CreatedLabel.Text = "Created";
+			this.CreatedLabel.Text = "Created:";
 			// 
 			// ChangedLabel
 			// 
 			this.ChangedLabel.AutoSize = true;
 			this.ChangedLabel.Location = new System.Drawing.Point(231, 58);
 			this.ChangedLabel.Name = "ChangedLabel";
-			this.ChangedLabel.Size = new System.Drawing.Size(50, 13);
+			this.ChangedLabel.Size = new System.Drawing.Size(53, 13);
 			this.ChangedLabel.TabIndex = 10;
-			this.ChangedLabel.Text = "Changed";
+			this.ChangedLabel.Text = "Changed:";
 			// 
 			// tableLayoutPanel1
 			// 
@@ -173,7 +161,7 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(725, 414);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(754, 419);
 			this.tableLayoutPanel1.TabIndex = 21;
 			// 
 			// Panel1
@@ -190,7 +178,7 @@
 			this.Panel1.Location = new System.Drawing.Point(3, 3);
 			this.Panel1.MinimumSize = new System.Drawing.Size(241, 408);
 			this.Panel1.Name = "Panel1";
-			this.Panel1.Size = new System.Drawing.Size(247, 408);
+			this.Panel1.Size = new System.Drawing.Size(257, 413);
 			this.Panel1.TabIndex = 0;
 			// 
 			// CategoryBox
@@ -199,18 +187,18 @@
 			this.CategoryBox.FormattingEnabled = true;
 			this.CategoryBox.Location = new System.Drawing.Point(99, 12);
 			this.CategoryBox.Name = "CategoryBox";
-			this.CategoryBox.Size = new System.Drawing.Size(130, 21);
+			this.CategoryBox.Size = new System.Drawing.Size(155, 21);
 			this.CategoryBox.TabIndex = 16;
 			this.CategoryBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBox_SelectedIndexChanged);
 			// 
 			// ShowLabel
 			// 
 			this.ShowLabel.AutoSize = true;
-			this.ShowLabel.Location = new System.Drawing.Point(1, 15);
+			this.ShowLabel.Location = new System.Drawing.Point(1, 16);
 			this.ShowLabel.Name = "ShowLabel";
-			this.ShowLabel.Size = new System.Drawing.Size(79, 13);
+			this.ShowLabel.Size = new System.Drawing.Size(82, 13);
 			this.ShowLabel.TabIndex = 3;
-			this.ShowLabel.Text = "Show Category";
+			this.ShowLabel.Text = "Show Category:";
 			// 
 			// NoteBox
 			// 
@@ -220,7 +208,7 @@
 			this.NoteBox.FormattingEnabled = true;
 			this.NoteBox.Location = new System.Drawing.Point(4, 39);
 			this.NoteBox.Name = "NoteBox";
-			this.NoteBox.Size = new System.Drawing.Size(239, 329);
+			this.NoteBox.Size = new System.Drawing.Size(249, 329);
 			this.NoteBox.TabIndex = 6;
 			this.NoteBox.SelectedIndexChanged += new System.EventHandler(this.NoteBox_SelectedIndexChanged);
 			// 
@@ -228,7 +216,7 @@
 			// 
 			this.AddPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.AddPicture.Image = ((System.Drawing.Image)(resources.GetObject("AddPicture.Image")));
-			this.AddPicture.Location = new System.Drawing.Point(18, 378);
+			this.AddPicture.Location = new System.Drawing.Point(2, 368);
 			this.AddPicture.Name = "AddPicture";
 			this.AddPicture.Size = new System.Drawing.Size(26, 27);
 			this.AddPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -240,7 +228,7 @@
 			// 
 			this.DeletePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.DeletePicture.Image = ((System.Drawing.Image)(resources.GetObject("DeletePicture.Image")));
-			this.DeletePicture.Location = new System.Drawing.Point(99, 378);
+			this.DeletePicture.Location = new System.Drawing.Point(61, 368);
 			this.DeletePicture.Name = "DeletePicture";
 			this.DeletePicture.Size = new System.Drawing.Size(26, 27);
 			this.DeletePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -252,7 +240,7 @@
 			// 
 			this.EditPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.EditPicture.Image = ((System.Drawing.Image)(resources.GetObject("EditPicture.Image")));
-			this.EditPicture.Location = new System.Drawing.Point(58, 378);
+			this.EditPicture.Location = new System.Drawing.Point(32, 368);
 			this.EditPicture.Name = "EditPicture";
 			this.EditPicture.Size = new System.Drawing.Size(26, 27);
 			this.EditPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -329,20 +317,29 @@
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(719, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(748, 24);
 			this.menuStrip1.TabIndex = 20;
 			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// TitleLabel
+			// 
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.TitleLabel.Location = new System.Drawing.Point(8, 3);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(85, 33);
+			this.TitleLabel.TabIndex = 22;
+			this.TitleLabel.Text = "Title:";
 			// 
 			// NoteAppForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(719, 460);
+			this.ClientSize = new System.Drawing.Size(748, 465);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.KeyPreview = true;
-			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(735, 498);
 			this.Name = "NoteAppForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -369,7 +366,6 @@
 
 		private System.Windows.Forms.Panel Panel2;
 		private System.Windows.Forms.TextBox TextBox;
-		private System.Windows.Forms.TextBox TitleBox;
 		private System.Windows.Forms.Label CategoryLabel;
 		private System.Windows.Forms.Label CreatedLabel;
 		private System.Windows.Forms.Label ChangedLabel;
@@ -393,6 +389,7 @@
 		private System.Windows.Forms.Label CurrentCategoryNote;
 		private System.Windows.Forms.DateTimePicker ChangedDate;
 		private System.Windows.Forms.DateTimePicker CreateDate;
+		private System.Windows.Forms.Label TitleLabel;
 	}
 }
 

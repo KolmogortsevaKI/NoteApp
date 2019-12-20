@@ -46,7 +46,6 @@ namespace NoteAppUI
 					TextBox.Text = value.Text;
 					CategoryBox.SelectedItem = value.Category;
 				}
-
 			}
 		}
 		/// <summary>

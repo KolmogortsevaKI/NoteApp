@@ -12,8 +12,8 @@ using Newtonsoft.Json;
 	{
 		public static void SaveToFile(Project project, string path)
 		{
-			//Создаём экземпляр сериализатора
-			JsonSerializer serializer = new JsonSerializer();
+			//Создаём экземпляр сериализатораj,
+			JsonSerializer serializer = new JsonSerializer { Formatting = Formatting.Indented };
 			//Открываем поток для записи в файл с указанием пути
 			using (StreamWriter sw = new StreamWriter(path + "/Notes.notes"))
 			using (JsonWriter writer = new JsonTextWriter(sw))
@@ -22,16 +22,15 @@ using Newtonsoft.Json;
 				serializer.Serialize(writer, project);
 			}
 		}
-
 		public static Project LoadFromFile(string path)
 		{
 			//Создаём переменную, в которую поместим результат десериализации
 			Project project = null;
 			//Создаём экземпляр сериализатора
-			JsonSerializer serializer = new JsonSerializer();
+			JsonSerializer serializer = new JsonSerializer { Formatting = Formatting.Indented };
 			try
 			{
-				using (StreamReader sr = new StreamReader(path + "/Notes.notes"))
+				using (StreamReader sr = new StreamReader(path + @"/Notes.notes"))
 				using (JsonReader reader = new JsonTextReader(sr))
 				{
 					//Вызываем десериализацию и явно преобразуем результат в целевой тип данных

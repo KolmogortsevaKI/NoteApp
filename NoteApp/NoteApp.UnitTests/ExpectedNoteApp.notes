@@ -3,14 +3,14 @@
     {
       "Title": "First",
       "Text": "asd",
-      "Category": 1,
+      "Category": 0,
       "DateCreate": "2008-12-28T00:00:00",
       "DateChange": "2019-12-06T09:37:37.1362014+07:00"
     },
     {
       "Title": "Second",
       "Text": "dsa",
-      "Category": 2,
+      "Category": 1,
       "DateCreate": "2008-12-28T00:00:00",
       "DateChange": "2019-12-06T09:37:47.8172014+07:00"
     }
