@@ -67,7 +67,7 @@ namespace NoteAppUI
 		}
 
 		/// <summary>
-		/// Кнопка ОК.
+		/// Кнопка сохранения.
 		/// </summary>
 		private void OK_Click(object sender, EventArgs e)
 		{			
@@ -76,7 +76,7 @@ namespace NoteAppUI
 		}
 
 		/// <summary>
-		/// Кнопка Cancel.
+		/// Кнопка выхода из окна создания и редактирования.
 		/// </summary>
 		private void Cancel_Click(object sender, EventArgs e)
 		{
@@ -84,7 +84,7 @@ namespace NoteAppUI
 		}
 
 		/// <summary>
-		/// Предупреждение для некоректного ввода заголовка заметки.
+		/// Предупреждение от некоректного ввода заголовка заметки.
 		/// </summary>
 		private void AddTitleBox_TextChanged(object sender, EventArgs e)
 		{

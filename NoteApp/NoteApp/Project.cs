@@ -11,8 +11,17 @@ namespace NoteApp
 	/// </summary>
 	public class Project
 	{
+		/// <summary>
+		/// Список заметок.
+		/// </summary>
 		private List<Note> _notes = new List<Note>();
+		/// <summary>
+		/// Текущая заметка.
+		/// </summary>
 		private int _currentNote = -1;
+		/// <summary>
+		/// Свойство списка всех заметок.
+		/// </summary>
 		public List<Note> Notes
 		{
 			get 
@@ -47,6 +56,9 @@ namespace NoteApp
 			});
 			return sortingList;
 		}
+		/// <summary>
+		/// Свойство текущей заметки.
+		/// </summary>
 		public int CurrentNote
 		{
 			get

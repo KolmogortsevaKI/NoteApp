@@ -12,6 +12,9 @@ namespace NoteAppUI
 {
 	public partial class AboutForm : Form
 	{
+		/// <summary>
+		/// Окно about.
+		/// </summary>
 		public AboutForm()
 		{
 			InitializeComponent();

@@ -10,14 +10,18 @@ namespace NoteAppUI
 	/// </summary>
 	public partial class NoteAppForm : Form
 	{
+		/// <summary>
+		/// Создание проекта.
+		/// </summary>
 		Project newProject = new Project();
+
 		/// <summary>
 		/// Список текущих заметок.
 		/// </summary>
 		private List<Note> currentNotes;
 
 		///<summary> 
-		///Привязка категорий к значениям.Добавление категории All.
+		///Привязка категорий к значениям. Добавление категории All.
 		///</summary>
 		public NoteAppForm()
 		{
@@ -169,7 +173,7 @@ namespace NoteAppUI
 		}
 
 		/// <summary>
-		/// Отчистка на дисплее о данных заметки.
+		/// Отчистка дисплея от данных текущей заметки.
 		/// </summary>
 		private void CleanNote()
 		{
@@ -210,10 +214,10 @@ namespace NoteAppUI
 			CurrentCategory();
 		}
 
-	/// <summary>
-	/// Добавление новой заметки.
-	/// </summary>
-	private void AddBox_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Добавление новой заметки.
+		/// </summary>
+		private void AddBox_Click(object sender, EventArgs e)
 		{
 			AddCommon();
 		}
@@ -284,7 +288,7 @@ namespace NoteAppUI
 		}
 
 		/// <summary>
-		/// Удаление при нажатии Delete.
+		/// Удаление заметки при нажатии Delete.
 		/// </summary>
 		private void NoteAppForm_KeyUp(object sender, KeyEventArgs e)
 		{
