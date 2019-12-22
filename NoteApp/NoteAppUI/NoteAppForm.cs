@@ -22,7 +22,7 @@ namespace NoteAppUI
 		public NoteAppForm()
 		{
 			InitializeComponent();	
-			CategoryBox.Items.Add("All");
+			CategoryBox.Items.Add("All"); 
 			var listCategory = System.Enum.GetValues(typeof(CategoryNote));
 			foreach (var category in listCategory)
 			{
@@ -94,15 +94,15 @@ namespace NoteAppUI
 				{
 					newProject.Notes.RemoveAt(currentIndexNote);
 					newProject.Notes = newProject.SortNotes(newProject.Notes);
-					CurrentCategory();
+					newProject.CurrentNote = -1;
 					SaveProject();
-					if (NoteBox.Items.Count > 0)
-					{
-						NoteBox.SelectedIndex = 0;
-					}
+					NoteBox.SelectedIndex = -1;
+					CurrentCategory();
+					CleanNote();
 				}
 			}
 		}
+
 		/// <summary>
 		/// Поиск категории.
 		/// </summary>
@@ -138,7 +138,15 @@ namespace NoteAppUI
 				NoteBox.Items.Add(note.Title);
 			}
 			currentNotes = notes;
-			NoteBox.SelectedIndex = newProject.CurrentNote;
+			if (currentNotes.Count-1 >= newProject.CurrentNote)
+			{
+				NoteBox.SelectedIndex = newProject.CurrentNote;
+			}
+			else
+			{
+				NoteBox.SelectedIndex = -1;
+				newProject.CurrentNote = -1;
+			}
 		}
 
 		/// <summary>
@@ -155,9 +163,21 @@ namespace NoteAppUI
 				CreateDate.Value = newProject.Notes[currentIndexNote].DateCreate;
 				ChangedDate.Value = newProject.Notes[currentIndexNote].DateChange;
 				TextBox.Text = newProject.Notes[currentIndexNote].Text;
+				newProject.CurrentNote = newProject.Notes.IndexOf(currentNotes[NoteBox.SelectedIndex]);
+				SaveProject();
 			}
-			newProject.CurrentNote = NoteBox.SelectedIndex;
-			SaveProject();
+		}
+
+		/// <summary>
+		/// Отчистка на дисплее о данных заметки.
+		/// </summary>
+		private void CleanNote()
+		{
+			CurrentCategoryNote.Text = "";
+			CreateDate.Text = "";
+			ChangedDate.Text = "";
+			TitleLabel.Text = "Заметка";
+			TextBox.Text = "";
 		}
 
 		/// <summary>	
@@ -179,10 +199,21 @@ namespace NoteAppUI
 			string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			ProjectManager.SaveToFile(newProject, path);
 		}
+
 		/// <summary>
-		/// Добавление новой заметки.
+		/// Получение заметок по выбранной категории.
 		/// </summary>
-		private void AddBox_Click(object sender, EventArgs e)
+		private void CategoryBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			NoteBox.SelectedIndex = -1;
+			CleanNote();
+			CurrentCategory();
+		}
+
+	/// <summary>
+	/// Добавление новой заметки.
+	/// </summary>
+	private void AddBox_Click(object sender, EventArgs e)
 		{
 			AddCommon();
 		}
@@ -226,15 +257,6 @@ namespace NoteAppUI
 		{
 			DeleteCommon();
 		}
-
-		/// <summary>
-		/// Получение заметок по выбранной категории.
-		/// </summary>
-		private void CategoryBox_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			NoteBox.SelectedIndex= -1;
-			CurrentCategory();
-		}	
 
 		/// <summary>
 		/// Сохранение перед закрытием приложения.

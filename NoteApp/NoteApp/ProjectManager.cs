@@ -22,6 +22,7 @@ using Newtonsoft.Json;
 				serializer.Serialize(writer, project);
 			}
 		}
+
 		public static Project LoadFromFile(string path)
 		{
 			//Создаём переменную, в которую поместим результат десериализации

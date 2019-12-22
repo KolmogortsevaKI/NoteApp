@@ -30,6 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteAppForm));
 			this.Panel2 = new System.Windows.Forms.Panel();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.ChangedDate = new System.Windows.Forms.DateTimePicker();
 			this.CreateDate = new System.Windows.Forms.DateTimePicker();
 			this.CurrentCategoryNote = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.TitleLabel = new System.Windows.Forms.Label();
 			this.Panel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.Panel1.SuspendLayout();
@@ -81,6 +81,16 @@
 			this.Panel2.Name = "Panel2";
 			this.Panel2.Size = new System.Drawing.Size(485, 413);
 			this.Panel2.TabIndex = 1;
+			// 
+			// TitleLabel
+			// 
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.TitleLabel.Location = new System.Drawing.Point(8, 3);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(85, 33);
+			this.TitleLabel.TabIndex = 22;
+			this.TitleLabel.Text = "Title:";
 			// 
 			// ChangedDate
 			// 
@@ -183,6 +193,9 @@
 			// 
 			// CategoryBox
 			// 
+			this.CategoryBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.CategoryBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.CategoryBox.FormattingEnabled = true;
 			this.CategoryBox.Location = new System.Drawing.Point(99, 12);
@@ -214,36 +227,36 @@
 			// 
 			// AddPicture
 			// 
-			this.AddPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AddPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.AddPicture.Image = ((System.Drawing.Image)(resources.GetObject("AddPicture.Image")));
 			this.AddPicture.Location = new System.Drawing.Point(2, 368);
 			this.AddPicture.Name = "AddPicture";
 			this.AddPicture.Size = new System.Drawing.Size(26, 27);
-			this.AddPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.AddPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.AddPicture.TabIndex = 13;
 			this.AddPicture.TabStop = false;
 			this.AddPicture.Click += new System.EventHandler(this.AddBox_Click);
 			// 
 			// DeletePicture
 			// 
-			this.DeletePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.DeletePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.DeletePicture.Image = ((System.Drawing.Image)(resources.GetObject("DeletePicture.Image")));
 			this.DeletePicture.Location = new System.Drawing.Point(61, 368);
 			this.DeletePicture.Name = "DeletePicture";
 			this.DeletePicture.Size = new System.Drawing.Size(26, 27);
-			this.DeletePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.DeletePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.DeletePicture.TabIndex = 15;
 			this.DeletePicture.TabStop = false;
 			this.DeletePicture.Click += new System.EventHandler(this.DeletePicture_Click);
 			// 
 			// EditPicture
 			// 
-			this.EditPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.EditPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.EditPicture.Image = ((System.Drawing.Image)(resources.GetObject("EditPicture.Image")));
 			this.EditPicture.Location = new System.Drawing.Point(32, 368);
 			this.EditPicture.Name = "EditPicture";
 			this.EditPicture.Size = new System.Drawing.Size(26, 27);
-			this.EditPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.EditPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.EditPicture.TabIndex = 14;
 			this.EditPicture.TabStop = false;
 			this.EditPicture.Click += new System.EventHandler(this.EditBox_Click);
@@ -320,16 +333,6 @@
 			this.menuStrip1.Size = new System.Drawing.Size(748, 24);
 			this.menuStrip1.TabIndex = 20;
 			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// TitleLabel
-			// 
-			this.TitleLabel.AutoSize = true;
-			this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.TitleLabel.Location = new System.Drawing.Point(8, 3);
-			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(85, 33);
-			this.TitleLabel.TabIndex = 22;
-			this.TitleLabel.Text = "Title:";
 			// 
 			// NoteAppForm
 			// 

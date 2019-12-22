@@ -14,10 +14,12 @@ namespace NoteAppUI
 		/// </summary>
 		private static int _defaultNameCount = 0;
 		private static string _defaultName = "Безымянный №";
+
 		/// <summary>
 		///Текущая заметка.
 		/// </summary>
 		private Note _currentNote = new Note();
+
 		/// <summary>
 		///Геттеры и сеттеры для текущей заметки.
 		/// </summary>
@@ -48,12 +50,14 @@ namespace NoteAppUI
 				}
 			}
 		}
+
 		/// <summary>
 		/// Конструктор.
 		/// </summary>		
 		public AddEditForm()
 		{
 			InitializeComponent();
+
 			/// <summary>
 			/// Заполнение списка категориями.
 			/// </summary>
@@ -61,6 +65,7 @@ namespace NoteAppUI
 			CategoryBox.DataSource = values;
 			CategoryBox.SelectedIndex = 0;
 		}
+
 		/// <summary>
 		/// Кнопка ОК.
 		/// </summary>
@@ -69,12 +74,31 @@ namespace NoteAppUI
 			DialogResult = DialogResult.OK;
 			Close();
 		}
+
 		/// <summary>
 		/// Кнопка Cancel.
 		/// </summary>
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Close();
-		}	
+		}
+
+		/// <summary>
+		/// Предупреждение для некоректного ввода заголовка заметки.
+		/// </summary>
+		private void AddTitleBox_TextChanged(object sender, EventArgs e)
+		{
+			if (AddTitleBox.TextLength > 50)
+			{
+				DialogResult result = MessageBox.Show(
+				"Title lenght is more than 50 symbols!",
+				_currentNote.Title,
+				MessageBoxButtons.OK,
+				MessageBoxIcon.Information,
+				MessageBoxDefaultButton.Button1,
+				MessageBoxOptions.DefaultDesktopOnly);
+				AddTitleBox.Text = "Безымянный";
+			}
+		}
 	}
 }
