@@ -29,8 +29,8 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Repository\NoteApp\NoteApp\InstallScripts\Release\NoteAppUI.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Repository\NoteApp\NoteApp\InstallScripts\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "\InstallScripts\Release\NoteApp.UI.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "\InstallScripts\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
